@@ -1,0 +1,1 @@
+export { VictimsByAge } from "./VictimsByAge";

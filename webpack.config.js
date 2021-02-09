@@ -1,51 +1,56 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/main.tsx'
-  ],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.ts(x)?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
-  },
-  resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-      '.tsx',
-      '.ts'
+    entry: [
+        "react-hot-loader/patch",
+        "./src/main.tsx"
     ],
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js"
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "style.css",
+            chunkFilename: "[name].css"
+        })
+    ],  
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.ts(x)?$/,
+                loader: "ts-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            }
+        ]
+    },
+    resolve: {
+        extensions: [
+            ".js",
+            ".jsx",
+            ".tsx",
+            ".ts"
+        ],
+        alias: {
+            "react-dom": "@hot-loader/react-dom"
+        }
+    },
+    devServer: {
+        contentBase: "./dist"
     }
-  },
-  devServer: {
-    contentBase: './dist'
-  }
 };
 
 module.exports = config;

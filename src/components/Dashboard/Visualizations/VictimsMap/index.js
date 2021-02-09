@@ -1,0 +1,1 @@
+export { VictimsMap } from "./VictimsMap";
