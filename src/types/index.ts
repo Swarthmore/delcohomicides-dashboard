@@ -1,3 +1,10 @@
+export type ActiveMapLayer = 
+| "No active layer" 
+| "Median income"
+| "Homicide rates"
+| "% non-white"
+| "Pop. density"
+| "Municipalities"
 export namespace WP {
     export interface User {
         ID: number
@@ -116,7 +123,7 @@ export namespace DGVField {
     | "White"
     | "Other"
     | "Unknown"
-    | "missing"
+    | "Missing"
     
     export type VictimEthnicity = 
     | "Hispanic"
@@ -226,6 +233,7 @@ export namespace DGVField {
     | "Firearm"
     | "Handgun"
     | "Knife/Cutting Instrument"
+    | "Missing"
     | "Other"
     | "Other Gun"
     | "Personal Weapons"
