@@ -51,7 +51,7 @@ const MCBOX = true;
 const FCBOX = true;
 const AGCBOX = true;
 const RACES: DGVField.VictimRace[] = ["Black", "White", "Unknown", "Asian/Pacific Islander","Missing","Hispanic"];
-const WEPS: DGVField.WeaponType[] = ["Knife/Cutting Instrument", "Handgun", "Firearm", "Missing", "Blunt Object", "Other", "Rifle", "Asphyxiation", "Strangulation", "Drugs/Narcotics/Sleeping Pills", "Unknown", "Other Gun", "Shotgun", "Personal Weapons", "Fire/Incendiary Device", "Handgun"];
+const WEPS: DGVField.WeaponType[] = ["Knife/Cutting Instrument", "Firearm", "Missing", "Blunt Object", "Other", "Rifle", "Asphyxiation", "Strangulation", "Drugs/Narcotics/Sleeping Pills", "Unknown", "Other Gun", "Shotgun", "Personal Weapons", "Fire/Incendiary Device", "Handgun"];
 const LAYER = "No active layer";
 
 export const FiltersContext = React.createContext<Filters>({
