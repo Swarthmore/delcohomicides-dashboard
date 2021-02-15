@@ -9,22 +9,43 @@ import AllGunsCheckboxField from "./fields/AllGunsCheckboxField/AllGunsCheckboxF
 import MapLayerField from "./fields/MapLayerField/MapLayerField";
 import ClearAllButton from "./common/ClearAllButton/ClearAllButton";
 import SelectAllButton from "./common/SelectAllButton/SelectAllButton";
+import { useStyles } from "./useStyles";
 
 export default function Filters() {
 
+    const classes = useStyles();
+
     return (
-        <form noValidate onSubmit={e => e.preventDefault}>
-            <SelectAllButton color="primary" />
-            <ClearAllButton color="secondary" />
-            <StartYearField />
-            <EndYearField />
-            <VictimRacesField />
-            <WeaponsField />
-            <FemaleCheckboxField />
-            <MaleCheckboxField />
-            <AllGunsCheckboxField />
-            <MapLayerField />
-        </form>
+        <div className={classes.root}> 
+            <form noValidate onSubmit={e => e.preventDefault}>
+                <div className={classes.fieldContainer}>
+                    <SelectAllButton color="primary" />
+                    <ClearAllButton color="secondary" />
+                </div>
+                <div className={classes.fieldContainer}>
+                    <div className={classes.yearFields}>
+                        <StartYearField />
+                        <EndYearField />
+                    </div>
+                </div>
+                <div className={classes.fieldContainer}>
+                    <WeaponsField />
+                </div>
+                <div className={classes.fieldContainer}>
+                    <AllGunsCheckboxField />
+                </div>
+                <div className={classes.fieldContainer}>
+                    <FemaleCheckboxField />
+                    <MaleCheckboxField />
+                </div>
+                <div className={classes.fieldContainer}>
+                    <VictimRacesField />
+                </div>
+                <div className={classes.fieldContainer}>
+                    <MapLayerField />
+                </div>
+            </form>
+        </div>
     );
 
 }

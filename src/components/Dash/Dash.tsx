@@ -7,13 +7,8 @@ export default function Dash() {
     const ctx = React.useContext(FiltersContext);
 
     return (
-
         <div>
-            <code>
-                {JSON.stringify(ctx, null, 4)}
-            </code>
         </div>
-
     );
 
 }

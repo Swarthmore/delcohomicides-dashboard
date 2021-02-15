@@ -17,7 +17,7 @@ export default function MapLayerField() {
     ];
 
     return (
-        <FormControl>
+        <FormControl fullWidth>
             <InputLabel>Map Overlay</InputLabel>
             <Select onChange={e => ctx.setters.activeLayer(e.target.value as ActiveMapLayer)} value={ctx.values.activeLayer}>
                 {options.map(o => <MenuItem key={o} value={o}>{o}</MenuItem>)}

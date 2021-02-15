@@ -28,7 +28,7 @@ export default function YearSelectField(props: Props) {
     }, [ctx.defaultValues.endYear, ctx.defaultValues.startYear]);
 
     return (
-        <FormControl>
+        <FormControl style={{flexGrow: 1, width: '50%'}}>
             <InputLabel {...props.inputLabelProps}>{props.label}</InputLabel>
             <Select {...props.selectProps}>
                 {options.map(o => <MenuItem key={o} value={o} {...props.menuItemProps} button={true}>{o}</MenuItem>)}
