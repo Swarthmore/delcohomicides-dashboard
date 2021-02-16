@@ -34,7 +34,7 @@ export const filterIncidents = ({
 export const groupIncidentsByYearAndVictimRace = ({
   incidents,
   years,
-  races,
+  races
 }) => {
   // The placeholder for the grouped data
   let data = {};
@@ -56,12 +56,11 @@ export const groupIncidentsByYearAndVictimRace = ({
 
       // For each incident
       for (let i = 0; i < incidents.length; i++) {
-        // Push the incident to the correct array if conditions are met
         if (
-          years[y].toString() === incidents[i]["year"] &&
-          races[r] === incidents[i]["victim_race"]
+            years[y].toString() === incidents[i]["year"] &&
+            races[r] === incidents[i]["victim_race"]
         ) {
-          data[years[y]][races[r]].push(incidents[i]);
+            data[years[y]][races[r]].push(incidents[i]);
         }
       }
     }

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { DGVField, ActiveMapLayer } from "../types/index";
-
 export interface Filters {
     values: {
         startYear: number
@@ -8,6 +7,7 @@ export interface Filters {
         maleCbox: boolean
         femaleCbox: boolean
         allGunsCbox: boolean
+        genders: DGVField.Sex[]
         victimRaces: DGVField.VictimRace[]
         weaponTypes: DGVField.WeaponType[]
         activeLayer: ActiveMapLayer 
@@ -22,21 +22,12 @@ export interface Filters {
         weaponTypes: React.Dispatch<React.SetStateAction<DGVField.WeaponType[]>>
         activeLayer: React.Dispatch<React.SetStateAction<ActiveMapLayer>>
     }
-    errors: {
-        startYear: {} 
-        endYear: {} 
-        maleCbox: {}
-        femaleCbox: {} 
-        allGunsCbox: {} 
-        victimRaces: {} 
-        weaponTypes: {} 
-        activeLayer: {} 
-    }
     defaultValues: {
         startYear: number
         endYear: number
         maleCbox: boolean
         femaleCbox: boolean
+        genders: DGVField.Sex[]
         allGunsCbox: boolean
         victimRaces: DGVField.VictimRace[]
         weaponTypes: DGVField.WeaponType[]
@@ -49,6 +40,7 @@ const START = 2005;
 const END = 2020;
 const MCBOX = true;
 const FCBOX = true;
+const GENDERS: DGVField.Sex[] = ["Male", "Female"];
 const AGCBOX = true;
 const RACES: DGVField.VictimRace[] = ["Black", "White", "Unknown", "Asian/Pacific Islander","Missing","Hispanic"];
 const WEPS: DGVField.WeaponType[] = ["Knife/Cutting Instrument", "Firearm", "Missing", "Blunt Object", "Other", "Rifle", "Asphyxiation", "Strangulation", "Drugs/Narcotics/Sleeping Pills", "Unknown", "Other Gun", "Shotgun", "Personal Weapons", "Fire/Incendiary Device", "Handgun"];
@@ -60,6 +52,7 @@ export const FiltersContext = React.createContext<Filters>({
         endYear: END,
         maleCbox: MCBOX,
         femaleCbox: FCBOX,
+        genders: GENDERS,
         allGunsCbox: AGCBOX,
         victimRaces: RACES,
         weaponTypes: WEPS,
@@ -80,21 +73,12 @@ export const FiltersContext = React.createContext<Filters>({
         endYear: END,
         maleCbox: MCBOX,
         femaleCbox: FCBOX,
+        genders: GENDERS,
         allGunsCbox: AGCBOX,
         victimRaces: RACES,
         weaponTypes: WEPS,
         activeLayer: LAYER
     },
-    errors: {
-        startYear: {},
-        endYear: {},
-        maleCbox: {},
-        femaleCbox: {},
-        allGunsCbox: {},
-        victimRaces: {},
-        weaponTypes: {},
-        activeLayer: {}
-    }
 });
 
 interface Props {
@@ -107,11 +91,22 @@ export default function FiltersContextProvider({ children }: Props) {
     const [end, setEnd] = React.useState(END);
     const [maleCbox, setMaleCbox] = React.useState(MCBOX);
     const [femaleCbox, setFemaleCbox] = React.useState(FCBOX);
+    const [genders, setGenders] = React.useState<DGVField.Sex[]>(GENDERS);
     const [allGunsCbox, setAllGunsCbox] = React.useState(AGCBOX);
     const [victimRaces, setVictimRaces] = React.useState<DGVField.VictimRace[]>(RACES);
     const [weaponTypes, setWeaponTypes] = React.useState<DGVField.WeaponType[]>(WEPS);
     const [activeLayer, setActiveLayer] = React.useState<ActiveMapLayer>(LAYER);
 
+    // when maleCbox or femaleCbox changes, make sure to populate genders[]
+    // TODO: this runs twice
+    React.useEffect(() => {
+        const g = [];
+        if (maleCbox) g.push("Male");
+        if (femaleCbox) g.push("Female");
+        setGenders(g); 
+    }, [])
+
+    console.log("Filters ran again")
     return (
         <FiltersContext.Provider value={{ 
             values: {
@@ -119,6 +114,7 @@ export default function FiltersContextProvider({ children }: Props) {
                 endYear: end,
                 maleCbox,
                 femaleCbox,
+                genders,
                 allGunsCbox,
                 victimRaces,
                 weaponTypes,
@@ -139,20 +135,11 @@ export default function FiltersContextProvider({ children }: Props) {
                 endYear: END,
                 maleCbox: MCBOX,
                 femaleCbox: FCBOX,
+                genders: GENDERS,
                 allGunsCbox: AGCBOX,
                 victimRaces: RACES,
                 weaponTypes: WEPS,
                 activeLayer: LAYER
-            },
-            errors: {
-                startYear: {},
-                endYear: {},
-                maleCbox: {},
-                femaleCbox: {},
-                allGunsCbox: {},
-                victimRaces: {},
-                weaponTypes: {},
-                activeLayer: {}
             }
         }}>
             {children}

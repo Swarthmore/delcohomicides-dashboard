@@ -1,1 +1,0 @@
-export { VictimsByRaceChart } from "./VictimsByRace";

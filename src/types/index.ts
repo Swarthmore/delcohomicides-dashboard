@@ -254,6 +254,8 @@ export namespace DGVField {
     | "Shoulder"
     
     export type GunPurchase = "Legal" | "Illegal"
+
+    export type Sex = "Male" | "Female"
     
 }
 
@@ -278,7 +280,7 @@ export interface IncidentFields {
     victim_race: DGVField.VictimRace 
     victim_ethnicity: DGVField.VictimEthnicity
     victim_age: string
-    victim_sex: string
+    victim_sex: DGVField.VictimSex 
     offenders_pa_ucr: string
     defendant: string
     defendant_2: string

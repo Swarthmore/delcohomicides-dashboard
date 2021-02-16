@@ -74,17 +74,6 @@ export const useStyles = makeStyles(theme => ({
         height: '280px',
         marginBottom: theme.spacing(2)
     },
-    // the class for the google map visualization
-    gmap: {
-        height: '100%',
-        width: '100%',
-        // fill out parent flex container
-        flexGrow: 1,
-        // spacing
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: theme.shadows[1]
-    },
     secondaryCharts: {
         display: 'flex',
         height: '40%',

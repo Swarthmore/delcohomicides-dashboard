@@ -4,7 +4,6 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend
 } from "recharts";
@@ -27,13 +26,9 @@ export default function VictimsByAge() {
 
     const title = "Victims by Age";
     const races = filters.values.victimRaces
-    const years = fillYearsArray(filters.values.startYear, filters.values.endYear); 
+    const years = fillYearsArray(filters.values.startYear.toString(), filters.values.endYear.toString()); 
     const weapons = filters.values.weaponTypes;
     const genders = [];
-    
-    console.log(data.formatted[0]);
-
-    if (!data.isLoaded) return <div>Loading data...</div>;
     
     const m = filters.values.maleCbox;
     const f = filters.values.femaleCbox;
@@ -50,7 +45,6 @@ export default function VictimsByAge() {
 
     const ChartJSX = (
         <BarChart data={chartData}>
-            <CartesianGrid strokeDashArray={"3 3"} />
             <XAxis dataKey={"name"} />
             <YAxis />
             <Tooltip labelStyle={{ color: '#000', fontWeight: 'bold' }} />
@@ -58,9 +52,7 @@ export default function VictimsByAge() {
             <Bar dataKey={"victims"} fill={purple} stackId={"a"} />
         </BarChart>
     );
-
-    return (
-        <VisContainer chart={ChartJSX} title={title} />
-    );
+    
+    return <VisContainer chart={ChartJSX} title={title} />;
 
 }

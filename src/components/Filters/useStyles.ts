@@ -6,7 +6,9 @@ export const useStyles = makeStyles(theme => ({
         display: "flex",
         flexDirection: "column",
         maxWidth: 400,
-        width: 400
+        width: 400,
+        background: theme.palette.background.paper,
+        padding: theme.spacing(2)
     },
     fieldContainer: {
         flexGrow: 1
