@@ -15,7 +15,7 @@ const config = {
         new MiniCssExtractPlugin({
             filename: "style.css",
             chunkFilename: "[name].css"
-        })
+        }),
     ],  
     module: {
         rules: [

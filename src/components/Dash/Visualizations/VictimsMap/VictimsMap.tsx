@@ -3,7 +3,7 @@ import {
     GoogleMap,
     KmlLayer,
     HeatmapLayer,
-    LoadScript
+    useJsApiLoader
 } from "@react-google-maps/api";
 import {
     GOOGLE_API_KEY,
@@ -38,7 +38,6 @@ const parseCoordinatesFromIncident = ({ location }) => {
 
 function VictimsMap() {
     
-    const [heatmapData, setHeatmapData] = React.useState([]);
     const [map, setMap] = React.useState(null);
     
     const data = React.useContext(WordpressContext);
@@ -46,51 +45,61 @@ function VictimsMap() {
 
     const classes = useStyles();
 
-    const onLoad = React.useCallback(m => {
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: GOOGLE_API_KEY
+    });
+
+    const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds();
-        m.fitBounds(bounds);
-        setMap(m);
+        map.fitBounds(bounds);
+        setMap(map)
     }, []);
 
-    const onUnmount = React.useCallback(() => {
+    const onUnmount = React.useCallback(function callback(map) {
         setMap(null);
-    }, [])
-    
-    const generateHeatmapPoints = () => {
-        return data.formatted
-        .map(incident => parseCoordinatesFromIncident(incident))
-        .filter(p => p);
-    };
-    
-    React.useEffect(() => {
-        if (!map) return
-        const points = generateHeatmapPoints();
-        const heatmapPoints = points.map(({ lat, lng, weight }) => ({
-            location: new window.google.maps.LatLng(lat, lng),
-            weight
-        }));
-        setHeatmapData(heatmapPoints);
-    }, [data.formatted, map]);
-    
-    ++RENDERS;
-    
-    console.log("HomicidesOverTime", RENDERS);
+        return
+    }, []);
 
-    return (
+    return isLoaded ? ( 
         <div className={classes.root}>
-            <LoadScript libraries={["visualization"]} googleMapsApiKey={GOOGLE_API_KEY}>
                 <GoogleMap
                     mapContainerStyle={{ width: "100%", height: "100%" }}
                     center={{ lat: 39.937406233270615, lng: -75.39280218135417 }}
                     zoom={10}
-                    onLoad={onLoad}
-                    onUnmount={onUnmount}
                 >
-                   
+                    <KmlLayer 
+                        url={DELCO_BORDER_KML} 
+                        onLoad={() => {}}
+                        onUnmount={() => {}}
+                    />
+
+                    {filters.values.activeLayer === "% non-white" && <KmlLayer
+                        url={PERCENT_NONWHITE_KML}
+                        onLoad={() => { }}
+                        onUnmount={() => { }}
+                    />}
+
+                    {filters.values.activeLayer === "Homicide rates" && <KmlLayer
+                        url={HOMICIDE_RATES_KML}
+                        onLoad={() => { }}
+                        onUnmount={() => { }}
+                    />}
+                    {filters.values.activeLayer === "Median income" && <KmlLayer
+                        url={MEDIAN_INCOME_KML}
+                        onLoad={() => { }}
+                        onUnmount={() => { }}
+                    />}
+
+                    {filters.values.activeLayer === "Pop. density" && <KmlLayer
+                        url={POPULATION_DENSITY_KML}
+                        onLoad={() => { }}
+                        onUnmount={() => { }}
+                    />}
+
                 </GoogleMap>
-            </LoadScript>
         </div>
-    )
+    ) : <div className={classes.root}>loading google maps libraries</div>
 };
 
 export default React.memo(VictimsMap);
