@@ -106,7 +106,6 @@ export default function FiltersContextProvider({ children }: Props) {
         setGenders(g); 
     }, [])
 
-    console.log("Filters ran again")
     return (
         <FiltersContext.Provider value={{ 
             values: {
