@@ -8,12 +8,13 @@ import VictimsByAge from "./Visualizations/VictimsByAge/VictimsByAge";
 import VictimsByRace from "./Visualizations/VictimsByRace/VictimsByRace";
 import VictimsMap from "./Visualizations/VictimsMap/VictimsMap";
 import { filterIncidents, fillYearsArray } from "../../helpers";
+import CountUp from "react-countup";
 
 export default function Dash({ onOpen }) {
 
     const filters = React.useContext(FiltersContext);
     const data = React.useContext(WordpressContext);
-
+    
     const classes = useStyles();
 
     // return the array of incidents occuring in given year
@@ -58,18 +59,18 @@ export default function Dash({ onOpen }) {
             
             <div className={classes.flexRow}>
                 <div className={classes.stats}>
-                    Showing <span className={classes.bigStat}>{filteredData.length}</span> total incidents from <span className={classes.bigStat}>{filters.values.startYear}</span> to <span className={classes.bigStat}>{filters.values.endYear}</span>
+                    Showing <span className={classes.bigStat}><CountUp start={0} end={filteredData.length} /></span> total incidents from <span className={classes.bigStat}>{filters.values.startYear}</span> to <span className={classes.bigStat}>{filters.values.endYear}</span>
                 </div>
             </div>
 
             <div className={classes.flexRow}>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>{filters.values.startYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}>{startHomicides.toString()}</div>
+                    <div className={classes.smallCardValue}><CountUp start={0} end={startHomicides} /></div>
                 </div>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>{filters.values.endYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}>{endHomicides.toString()}</div>
+                    <div className={classes.smallCardValue}><CountUp start={0} end={endHomicides} /></div>
                 </div>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>% change from {filters.values.startYear} to {filters.values.endYear}</div>
