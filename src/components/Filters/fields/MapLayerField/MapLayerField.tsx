@@ -12,8 +12,7 @@ export default function MapLayerField() {
         "Median income",
         "Homicide rates",
         "% non-white",
-        "Pop. density",
-        "Municipalities"
+        "Pop. density"
     ];
 
     return (
