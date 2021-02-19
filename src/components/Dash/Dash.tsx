@@ -16,6 +16,24 @@ export default function Dash({ onOpen }) {
 
     const classes = useStyles();
 
+    // return the array of incidents occuring in given year
+    const incidentsInYear = (arr, yr) => arr.filter(
+        (inc) => inc.year === yr.toString()
+    ).length;
+
+    /**
+     * Calculates in percent, the change between 2 numbers.
+     * e.g from 1000 to 500 = 50%
+     *
+     * @param oldNumber The initial value
+     * @param newNumber The value that changed
+     */
+    function  getPctChange(oldNumber, newNumber) { 
+        const decreaseValue = oldNumber - newNumber;
+        const num = +((decreaseValue / oldNumber) * 100).toFixed(2);
+        return parseFloat((num * -1).toString());
+    };
+
     const genders = [];
     const m = filters.values.maleCbox;
     const f = filters.values.femaleCbox;
@@ -31,6 +49,10 @@ export default function Dash({ onOpen }) {
         weapons: filters.values.weaponTypes
     });
 
+    const startHomicides = incidentsInYear(data.formatted, filters.values.startYear);
+    const endHomicides = incidentsInYear(data.formatted, filters.values.endYear);
+    const pctChange = getPctChange(startHomicides, endHomicides);
+
     return (
         <div className={classes.dashboard}>
             
@@ -43,15 +65,15 @@ export default function Dash({ onOpen }) {
             <div className={classes.flexRow}>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>{filters.values.startYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}>NA</div>
+                    <div className={classes.smallCardValue}>{startHomicides.toString()}</div>
                 </div>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>{filters.values.endYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}>NA</div>
+                    <div className={classes.smallCardValue}>{endHomicides.toString()}</div>
                 </div>
                 <div className={classes.smallCard}>
                     <div className={classes.smallCardTitle}>% change from {filters.values.startYear} to {filters.values.endYear}</div>
-                    <div className={classes.smallCardValue}>NA</div>
+                    <div className={classes.smallCardValue}>{pctChange > 0 && "+"}{pctChange}%</div>
                 </div>
                 <div className={classes.actionsContainer}>
                     <Button onClick={onOpen}>Filter</Button>
