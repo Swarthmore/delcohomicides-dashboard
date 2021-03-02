@@ -27,7 +27,7 @@ export default function WordpressContextProvider({ children }: Props) {
     const [formatted, setFormatted] = React.useState<FormattedIncident[]>([]);
     const [isLoaded, setIsLoaded] = React.useState<boolean>(true);
 
-    const baseURL = "https://api.delcogunviolence.aws-dev.swarthmore.edu/wp-json/wp/v2/incidents";
+    const baseURL = "https://delcogunviolence.aws-dev.swarthmore.edu/wp-json/wp/v2/incidents";
 
     React.useEffect(() => {
 
