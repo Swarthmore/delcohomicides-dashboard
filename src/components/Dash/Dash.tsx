@@ -77,7 +77,7 @@ export default function Dash({ onOpen }) {
                     <div className={classes.smallCardValue}>{pctChange > 0 && "+"}{pctChange}%</div>
                 </div>
                 <div className={classes.actionsContainer}>
-                    <Button onClick={onOpen}>Filter</Button>
+                    <Button onClick={onOpen} size="large" color="primary" variant="contained">Filter</Button>
                 </div>
             </div>
 
