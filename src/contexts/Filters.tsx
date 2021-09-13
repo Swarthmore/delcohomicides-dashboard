@@ -37,7 +37,7 @@ export interface Filters {
 
 // default values
 const START = 2005;
-const END = 2020;
+const END = 2019;
 const MCBOX = true;
 const FCBOX = true;
 const GENDERS: DGVField.Sex[] = ["Male", "Female"];
