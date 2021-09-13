@@ -13,7 +13,8 @@ export default function WeaponsField() {
             options={ctx.defaultValues.weaponTypes}
             selectProps={{
                 value: ctx.values.weaponTypes,
-                onChange: e => ctx.setters.weaponTypes(e.target.value as DGVField.WeaponType[])
+                onChange: e => ctx.setters.weaponTypes(e.target.value as DGVField.WeaponType[]),
+                disabled: ctx.values.allGunsCbox
             }}
         />
     );
