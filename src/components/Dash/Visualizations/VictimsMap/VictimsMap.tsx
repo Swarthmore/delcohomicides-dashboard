@@ -16,6 +16,7 @@ import {
 import { WordpressContext } from "../../../../contexts/Wordpress";
 import { FiltersContext } from "../../../../contexts/Filters";
 import { useStyles } from "./styles";
+import { fillYearsArray, filterIncidents } from "../../../../helpers";
 
 let RENDERS = 0
 
@@ -39,7 +40,8 @@ const parseCoordinatesFromIncident = ({ location }) => {
 function VictimsMap() {
     
     const [map, setMap] = React.useState(null);
-    
+    const [heatmapData, setHeatmapData] = React.useState([]);
+
     const data = React.useContext(WordpressContext);
     const filters = React.useContext(FiltersContext);
 
@@ -47,8 +49,34 @@ function VictimsMap() {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: GOOGLE_API_KEY
+        googleMapsApiKey: GOOGLE_API_KEY,
+        libraries: ['visualization']
     });
+
+    const generateHeatmapData = () => {
+
+        const genders = [];
+        const m = filters.values.maleCbox;
+        const f = filters.values.femaleCbox;
+
+        if (m) genders.push("Male");
+        if (f) genders.push("Female");
+
+        // filter the incidents
+        const filteredData = filterIncidents(data.formatted, {
+            races: filters.values.victimRaces,
+            genders,
+            years: fillYearsArray(filters.values.startYear.toString(), filters.values.endYear.toString()).map(i => i.toString()),
+            weapons: filters.values.weaponTypes
+        });
+
+        setHeatmapData(
+            filteredData.map(parseCoordinatesFromIncident)
+                .filter(Boolean)
+                .map(coords => new google.maps.LatLng(coords.lat, coords.lng))
+        );
+    
+    }
 
     const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds();
@@ -61,6 +89,11 @@ function VictimsMap() {
         return
     }, []);
 
+    // When the filters change, update the heatmap data.
+    React.useEffect(() => {
+        generateHeatmapData();
+    }, [filters.values]);
+
     return isLoaded ? ( 
         <div className={classes.root}>
                 <GoogleMap
@@ -72,6 +105,10 @@ function VictimsMap() {
                         url={DELCO_BORDER_KML} 
                         onLoad={() => {}}
                         onUnmount={() => {}}
+                    />
+
+                    <HeatmapLayer 
+                        data={heatmapData}
                     />
 
                     {filters.values.activeLayer === "% non-white" && <KmlLayer
@@ -99,7 +136,7 @@ function VictimsMap() {
 
                 </GoogleMap>
         </div>
-    ) : <div className={classes.root}>loading google maps libraries</div>
+    ) : <div className={classes.root}>Loading map...</div>
 };
 
 export default React.memo(VictimsMap);
