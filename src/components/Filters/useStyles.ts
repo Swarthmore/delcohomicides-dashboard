@@ -11,9 +11,12 @@ export const useStyles = makeStyles(theme => ({
         padding: theme.spacing(2)
     },
     fieldContainer: {
-        flexGrow: 1
+        flexGrow: 1,
+        display: "flex",
+        marginBottom: theme.spacing(2)
     },
     yearFields: {
-        flexDirection: "row"
+        flexDirection: "row",
+        flexGrow: 1
     }
 }));

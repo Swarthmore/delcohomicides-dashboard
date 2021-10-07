@@ -18,7 +18,7 @@ export default function Filters() {
     return (
         <div className={classes.root}> 
             <form noValidate onSubmit={e => e.preventDefault}>
-                <div className={classes.fieldContainer}>
+                <div className={classes.fieldContainer} style={{ justifyContent: 'space-between', marginBottom: '20px' }}>
                     <SelectAllButton color="primary" />
                     <ClearAllButton color="secondary" />
                 </div>
