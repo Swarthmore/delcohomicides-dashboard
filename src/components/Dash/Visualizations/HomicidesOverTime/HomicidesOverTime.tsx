@@ -19,7 +19,7 @@ export default function HomicidesOverTime() {
     const filters = React.useContext(FiltersContext); 
     const { formatted: data } = React.useContext(WordpressContext);
     
-    const title = "Homicides Over Time";
+    const title = "Homicides Victims Over Time";
     const races = filters.values.victimRaces
 
     const genders = [];
