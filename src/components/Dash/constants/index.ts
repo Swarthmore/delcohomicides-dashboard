@@ -1,5 +1,5 @@
 const baseURL = 'https://swarthmore.github.io/dgv-www'
-export const GOOGLE_API_KEY = `AIzaSyB9iN0DvkFtK0bZzkuWp805B9O0JBz0yFE`;
+export const GOOGLE_API_KEY = `AIzaSyDkxnv2gvNDB1oYNmZpFeqgBb32XR-K2lk`;
 export const MEDIAN_INCOME_KML =
   `${baseURL}/median_income.kml`;
 export const HOMICIDE_RATES_KML =

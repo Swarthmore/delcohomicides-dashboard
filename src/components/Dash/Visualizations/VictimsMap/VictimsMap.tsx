@@ -18,8 +18,6 @@ import { FiltersContext } from "../../../../contexts/Filters";
 import { useStyles } from "./styles";
 import { fillYearsArray, filterIncidents } from "../../../../helpers";
 
-let RENDERS = 0
-
 // Parse the coordinates from incident field
 const parseCoordinatesFromIncident = ({ location }) => {
     const regex = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
@@ -28,11 +26,7 @@ const parseCoordinatesFromIncident = ({ location }) => {
             const coordinates = location.split(",");
             const lat = parseFloat(coordinates[0].trim());
             const lng = parseFloat(coordinates[1].trim());
-            return {
-                lat,
-                lng,
-                weight: 1
-            };
+            return { lat, lng };
         }
     }
 };
@@ -73,7 +67,10 @@ function VictimsMap() {
         setHeatmapData(
             filteredData.map(parseCoordinatesFromIncident)
                 .filter(Boolean)
-                .map(coords => new google.maps.LatLng(coords.lat, coords.lng))
+                .map(coords => ({
+                    location: new google.maps.LatLng(coords.lat, coords.lng), 
+                    weight: 2
+                }))
         );
     
     }
@@ -94,6 +91,23 @@ function VictimsMap() {
         generateHeatmapData();
     }, [filters.values]);
 
+    const gradient = [
+        "rgba(0, 255, 255, 0)",
+        "rgba(0, 255, 255, 1)",
+        "rgba(0, 191, 255, 1)",
+        "rgba(0, 127, 255, 1)",
+        "rgba(0, 63, 255, 1)",
+        "rgba(0, 0, 255, 1)",
+        "rgba(0, 0, 223, 1)",
+        "rgba(0, 0, 191, 1)",
+        "rgba(0, 0, 159, 1)",
+        "rgba(0, 0, 127, 1)",
+        "rgba(63, 0, 91, 1)",
+        "rgba(127, 0, 63, 1)",
+        "rgba(191, 0, 31, 1)",
+        "rgba(255, 0, 0, 1)",
+    ];
+
     return isLoaded ? ( 
         <div className={classes.root}>
                 <GoogleMap
@@ -109,6 +123,13 @@ function VictimsMap() {
 
                     <HeatmapLayer 
                         data={heatmapData}
+                        options={{
+                            dissipating: true, 
+                            data: heatmapData, 
+                            radius: 30, 
+                            maxIntensity: 200, 
+                            gradient: gradient
+                        }}
                     />
 
                     {filters.values.activeLayer === "% non-white" && <KmlLayer
