@@ -31,10 +31,26 @@ const parseCoordinatesFromIncident = ({ location }) => {
     }
 };
 
+// Map the radius of influence for each point on the haetmap relative to the zoom level.
+const getRadius = (zoom) => {
+    if (zoom >= 15) {
+        return 60;
+    } else if (zoom >= 12) {
+        return 50;
+    } else if (zoom >= 10) {
+        return 30;
+    } else if (zoom >= 8) {
+        return 10;
+    }
+};
+
 function VictimsMap() {
     
     const [map, setMap] = React.useState(null);
     const [heatmapData, setHeatmapData] = React.useState([]);
+    const [heatmapPointRadius, setHeatmapPointRadius] = React.useState(10);
+
+    const mapRef = React.useRef();
 
     const data = React.useContext(WordpressContext);
     const filters = React.useContext(FiltersContext);
@@ -78,13 +94,22 @@ function VictimsMap() {
     const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds();
         map.fitBounds(bounds);
-        setMap(map)
+        setMap(map);
     }, []);
 
     const onUnmount = React.useCallback(function callback(map) {
-        setMap(null);
-        return
+        return () => {
+            map.setMap(null);
+            setMap(null);
+        }
     }, []);
+
+    const onZoomChanged = () => {
+        if (map) {
+            const zoom = map.getZoom();
+            setHeatmapPointRadius(getRadius(zoom));
+        }
+    }
 
     // When the filters change, update the heatmap data.
     React.useEffect(() => {
@@ -92,31 +117,38 @@ function VictimsMap() {
     }, [filters.values]);
 
     const gradient = [
-        "rgba(0, 255, 255, 0)",
-        "rgba(0, 255, 255, 1)",
-        "rgba(0, 191, 255, 1)",
-        "rgba(0, 127, 255, 1)",
-        "rgba(0, 63, 255, 1)",
-        "rgba(0, 0, 255, 1)",
-        "rgba(0, 0, 223, 1)",
-        "rgba(0, 0, 191, 1)",
-        "rgba(0, 0, 159, 1)",
-        "rgba(0, 0, 127, 1)",
-        "rgba(63, 0, 91, 1)",
-        "rgba(127, 0, 63, 1)",
-        "rgba(191, 0, 31, 1)",
-        "rgba(255, 0, 0, 1)",
+        'rgba(0, 255, 255, 0)',
+        'rgba(0, 255, 255, 1)',
+        'rgba(0, 191, 255, 1)',
+        'rgba(0, 127, 255, 1)',
+        'rgba(0, 63, 255, 1)',
+        'rgba(0, 0, 255, 1)',
+        'rgba(0, 0, 223, 1)',
+        'rgba(0, 0, 191, 1)',
+        'rgba(0, 0, 159, 1)',
+        'rgba(0, 0, 127, 1)',
+        'rgba(63, 0, 91, 1)',
+        'rgba(127, 0, 63, 1)',
+        'rgba(191, 0, 31, 1)',
+        'rgba(255, 0, 0, 1)'
     ];
 
     return isLoaded ? ( 
-        <div className={classes.root}>
+        <div className={classes.root} style={{position:'relative'}}>
                 <GoogleMap
+                    ref={mapRef}
                     mapContainerStyle={{ width: "100%", height: "100%" }}
                     center={{ lat: 39.937406233270615, lng: -75.39280218135417 }}
                     zoom={10}
+                    onLoad={onLoad}
+                    onZoomChanged={onZoomChanged}       
+                    options={{
+                        maxZoom: 15,
+                        minZoom: 10
+                    }}
                 >
                     <KmlLayer 
-                        url={DELCO_BORDER_KML} 
+                        url={DELCO_BORDER_KML}
                         onLoad={() => {}}
                         onUnmount={() => {}}
                     />
@@ -124,11 +156,10 @@ function VictimsMap() {
                     <HeatmapLayer 
                         data={heatmapData}
                         options={{
+                            data: heatmapData,
                             dissipating: true, 
-                            data: heatmapData, 
-                            radius: 30, 
-                            maxIntensity: 200, 
-                            gradient: gradient
+                            gradient: gradient,
+                            radius: heatmapPointRadius
                         }}
                     />
 
@@ -143,6 +174,7 @@ function VictimsMap() {
                         onLoad={() => { }}
                         onUnmount={() => { }}
                     />}
+
                     {filters.values.activeLayer === "Median income" && <KmlLayer
                         url={MEDIAN_INCOME_KML}
                         onLoad={() => { }}
@@ -156,6 +188,7 @@ function VictimsMap() {
                     />}
 
                 </GoogleMap>
+
         </div>
     ) : <div className={classes.root}>Loading map...</div>
 };
