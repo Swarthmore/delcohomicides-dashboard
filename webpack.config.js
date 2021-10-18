@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {
     entry: [
@@ -16,6 +17,11 @@ const config = {
             filename: "style.css",
             chunkFilename: "[name].css"
         }),
+        new CopyPlugin({
+            patterns: [
+              { from: "static", to: "." }
+            ],
+          })
     ],  
     module: {
         rules: [

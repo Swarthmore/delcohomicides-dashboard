@@ -148,16 +148,6 @@ function VictimsMap() {
                         onUnmount={() => {}}
                     />
 
-                    <HeatmapLayer 
-                        data={heatmapData}
-                        options={{
-                            data: heatmapData,
-                            dissipating: true, 
-                            gradient: gradient,
-                            radius: heatmapPointRadius
-                        }}
-                    />
-
                     {filters.values.activeLayer === "% non-white" && <KmlLayer
                         url={PERCENT_NONWHITE_KML}
                         onLoad={() => { }}
@@ -182,6 +172,15 @@ function VictimsMap() {
                         onUnmount={() => { }}
                     />}
 
+                    <HeatmapLayer 
+                        data={heatmapData}
+                        options={{
+                            data: heatmapData,
+                            dissipating: true, 
+                            gradient: gradient,
+                            radius: heatmapPointRadius
+                        }}
+                    />
                 </GoogleMap>
 
         </div>
