@@ -34,9 +34,9 @@ const parseCoordinatesFromIncident = ({ location }) => {
 // Map the radius of influence for each point on the haetmap relative to the zoom level.
 const getRadius = (zoom) => {
     if (zoom >= 15) {
-        return 60;
+        return 80;
     } else if (zoom >= 12) {
-        return 50;
+        return 60;
     } else if (zoom >= 10) {
         return 30;
     } else if (zoom >= 8) {
@@ -107,6 +107,7 @@ function VictimsMap() {
     const onZoomChanged = () => {
         if (map) {
             const zoom = map.getZoom();
+            console.log(zoom);
             setHeatmapPointRadius(getRadius(zoom));
         }
     }
@@ -119,17 +120,11 @@ function VictimsMap() {
     const gradient = [
         'rgba(0, 255, 255, 0)',
         'rgba(0, 255, 255, 1)',
-        'rgba(0, 191, 255, 1)',
         'rgba(0, 127, 255, 1)',
-        'rgba(0, 63, 255, 1)',
         'rgba(0, 0, 255, 1)',
-        'rgba(0, 0, 223, 1)',
         'rgba(0, 0, 191, 1)',
-        'rgba(0, 0, 159, 1)',
         'rgba(0, 0, 127, 1)',
-        'rgba(63, 0, 91, 1)',
         'rgba(127, 0, 63, 1)',
-        'rgba(191, 0, 31, 1)',
         'rgba(255, 0, 0, 1)'
     ];
 
