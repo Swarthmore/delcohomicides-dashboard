@@ -138,7 +138,7 @@ function VictimsMap() {
                     onLoad={onLoad}
                     onZoomChanged={onZoomChanged}       
                     options={{
-                        maxZoom: 15,
+                        maxZoom: 14,
                         minZoom: 10
                     }}
                 >
