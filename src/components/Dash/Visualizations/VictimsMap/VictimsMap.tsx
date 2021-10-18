@@ -107,7 +107,6 @@ function VictimsMap() {
     const onZoomChanged = () => {
         if (map) {
             const zoom = map.getZoom();
-            console.log(zoom);
             setHeatmapPointRadius(getRadius(zoom));
         }
     }
