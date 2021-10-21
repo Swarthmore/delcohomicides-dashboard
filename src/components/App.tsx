@@ -20,7 +20,7 @@ export default function App() {
     }
 
     return (
-        <div className="root">
+        <div style={{minHeight: '100vh'}}>
             <CssBaseline />
             <WordpressContextProvider>
                 <WordpressContext.Consumer>

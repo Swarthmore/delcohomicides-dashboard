@@ -105,6 +105,7 @@ function VictimsMap() {
     }, []);
 
     const onZoomChanged = () => {
+        // if the user zooms in, make the map larger.
         if (map) {
             const zoom = map.getZoom();
             setHeatmapPointRadius(getRadius(zoom));
@@ -127,8 +128,10 @@ function VictimsMap() {
         'rgba(255, 0, 0, 1)'
     ];
 
+    const rootRef = React.useRef();
+    
     return isLoaded ? ( 
-        <div className={classes.root} style={{position:'relative'}}>
+        <div className={classes.root} style={{position:'relative'}} ref={rootRef}>
                 <GoogleMap
                     ref={mapRef}
                     mapContainerStyle={{ width: "100%", height: "100%" }}
