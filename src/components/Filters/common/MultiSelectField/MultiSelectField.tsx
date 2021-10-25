@@ -23,7 +23,7 @@ export default function MultiSelectField(props: Props) {
                 multiple
                 {...props.selectProps}
                 input={<Input {...props.inputProps} />}
-                renderValue={(values: string[]) => <div className={classes.chipsContainer}>{values.map((str: string) => <Chip key={str} label={str} size="small" variant="outlined" />)}</div>}
+                renderValue={(values: string[]) => <div className={classes.chipsContainer}>{values.map((str: string) => <Chip className={classes.chip} key={str} label={str} size="small" variant="outlined" />)}</div>}
             >
                 {props.options.map(o => <MenuItem key={o} value={o} {...props.menuItemProps} button={true}>{o}</MenuItem>)}
             </Select>
