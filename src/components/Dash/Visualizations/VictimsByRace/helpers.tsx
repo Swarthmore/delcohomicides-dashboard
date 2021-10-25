@@ -65,7 +65,7 @@ export default function renderActiveShape(props) {
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
           textAnchor={textAnchor}
-          fill={'#fff'}
+          fill={'#000'}
         >{`${value}`}</text>
   
         <text
@@ -73,7 +73,7 @@ export default function renderActiveShape(props) {
           y={ey}
           dy={18}
           textAnchor={textAnchor}
-          fill={'#fff'}
+          fill={'#000'}
         >
           {`(${(percent * 100).toFixed(2)}%)`}
         </text>

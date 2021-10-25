@@ -11,7 +11,7 @@ export default function VisContainer(props: Props) {
     return (
         <Paper elevation={2}>
             <Typography variant="h6" align="center" gutterBottom={true}>{props.title}</Typography>
-            <ResponsiveContainer width="100%" minHeight={250} maxHeight={300}>
+            <ResponsiveContainer width="100%" minHeight={250} maxHeight={350}>
                 {props.chart}
             </ResponsiveContainer>
         </Paper>
