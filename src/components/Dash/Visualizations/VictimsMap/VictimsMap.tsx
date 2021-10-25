@@ -15,7 +15,6 @@ import {
 } from "../../constants";
 import { WordpressContext } from "../../../../contexts/Wordpress";
 import { FiltersContext } from "../../../../contexts/Filters";
-import { useStyles } from "./styles";
 import { fillYearsArray, filterIncidents } from "../../../../helpers";
 
 // Parse the coordinates from incident field
@@ -54,8 +53,6 @@ function VictimsMap() {
 
     const data = React.useContext(WordpressContext);
     const filters = React.useContext(FiltersContext);
-
-    const classes = useStyles();
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -131,10 +128,10 @@ function VictimsMap() {
     const rootRef = React.useRef();
     
     return isLoaded ? ( 
-        <div className={classes.root} style={{position:'relative'}} ref={rootRef}>
+        <div style={{height: '100%', paddingRight: '30px'}}>
                 <GoogleMap
                     ref={mapRef}
-                    mapContainerStyle={{ width: "100%", height: "100%" }}
+                    mapContainerStyle={{ minHeight: 500, height: "100%" }}
                     center={{ lat: 39.937406233270615, lng: -75.39280218135417 }}
                     zoom={10}
                     onLoad={onLoad}
@@ -186,7 +183,7 @@ function VictimsMap() {
                 </GoogleMap>
 
         </div>
-    ) : <div className={classes.root}>Loading map...</div>
+    ) : <div>Loading map...</div>
 };
 
 export default React.memo(VictimsMap);

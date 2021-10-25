@@ -52,13 +52,13 @@ export default function VictimsByRaceChart() {
     };
 
     const ChartJSX = (
-        <PieChart width={400} height={400}>
+        <PieChart height={250}>
           <Pie
             activeIndex={activeIndex}
             activeShape={renderActiveShape}
             data={chartData}
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={30}
+            outerRadius={50}
             fill="#f00"
             onMouseEnter={onPieEnter}
             dataKey="value"

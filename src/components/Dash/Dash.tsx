@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Grid, Box, Typography, Divider } from "@material-ui/core";
 import * as React from "react";
 import { FiltersContext } from "../../contexts/Filters";
 import { WordpressContext } from "../../contexts/Wordpress";
@@ -55,49 +55,57 @@ export default function Dash({ onOpen }) {
     const pctChange = getPctChange(startHomicides, endHomicides);
 
     return (
-        <div className={classes.dashboard}>
-            
-            <div className={classes.flexRow}>
-                <div className={classes.stats}>
+
+        <>
+        <Grid container>
+        
+            <Grid item xs={12}>
+                <Typography variant="subtitle2">
                     Showing <span className={classes.bigStat}><CountUp start={0} end={filteredData.length} /></span> total incidents from <span className={classes.bigStat}>{filters.values.startYear}</span> to <span className={classes.bigStat}>{filters.values.endYear}</span>
-                </div>
-            </div>
+                </Typography>
+            </Grid>
 
-            <div className={classes.flexRow}>
-                <div className={classes.smallCard}>
-                    <div className={classes.smallCardTitle}>{filters.values.startYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}><CountUp start={0} end={startHomicides} /></div>
-                </div>
-                <div className={classes.smallCard}>
-                    <div className={classes.smallCardTitle}>{filters.values.endYear} Total Homicides</div>
-                    <div className={classes.smallCardValue}><CountUp start={0} end={endHomicides} /></div>
-                </div>
-                <div className={classes.smallCard}>
-                    <div className={classes.smallCardTitle}>% change from {filters.values.startYear} to {filters.values.endYear}</div>
-                    <div className={classes.smallCardValue}>{pctChange > 0 && "+"}{pctChange}%</div>
-                </div>
-                <div className={classes.actionsContainer}>
-                    <Button onClick={onOpen} size="large" color="primary" variant="contained">Filter</Button>
-                </div>
-            </div>
+            <Grid container>
+                <Grid item xs={12} md={6}>
+                    <VictimsMap />
+                </Grid>
 
-            <div className={classes.mainChart}>
-                <VictimsMap />
-            </div>
-
-            <div className={classes.secondaryCharts}>
-                <div className={classes.secondaryChart}>
+                <Grid item xs={12} md={6}>
                     <HomicidesOverTime />
-                </div>
-                <div className={classes.secondaryChart}>
-                    <VictimsByAge />
-                </div>
-                <div className={classes.secondaryChart}>
-                    <VictimsByRace />
-                </div>
-            </div>
+                    <Divider />
 
-        </div>
+                    <Grid container>
+                        <Grid item xs={12} md={6}>
+                            <VictimsByAge />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <VictimsByRace />
+                        </Grid>
+                    </Grid>                    
+                </Grid>
+            </Grid>
+
+            <Grid container>
+                <Grid item xs={4}>
+                    <Typography variant="body2">Homicides in {filters.values.startYear}: <CountUp start={0} end={startHomicides} /></Typography>
+                </Grid>
+                <Grid item xs={4}>
+                    <Typography variant="body2">Homicides in {filters.values.endYear}: <CountUp start={0} end={endHomicides} /></Typography>
+                </Grid>
+                <Grid item xs={4}>
+                    <Typography variant="body2">% change from {filters.values.startYear} to {filters.values.endYear}: {pctChange > 0 && "+"}{pctChange}%</Typography>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+            <Button onClick={onOpen} size="large" color="primary" variant="contained" style={{
+                position: 'absolute',
+                top: '8px',
+                right: '8px',
+                zIndex: 400
+            }}>Click to filter incidents</Button>
+        </>
     );
 
 }

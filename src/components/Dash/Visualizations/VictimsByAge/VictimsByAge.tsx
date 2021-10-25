@@ -47,7 +47,7 @@ export default function VictimsByAge() {
         <BarChart data={chartData}>
             <XAxis dataKey={"name"} />
             <YAxis />
-            <Tooltip labelStyle={{ color: '#000', fontWeight: 'bold' }} />
+            <Tooltip labelStyle={{ color: '#000' }} />
             <Legend />
             <Bar dataKey={"victims"} fill={purple} stackId={"a"} />
         </BarChart>
