@@ -1,10 +1,31 @@
 import * as React from "react";
 import WordpressContextProvider, { WordpressContext } from "../contexts/Wordpress";
 import FilterContextProvider from "../contexts/Filters";
-import { LinearProgress, CssBaseline, Grid } from "@material-ui/core";
+import { LinearProgress, CssBaseline, ThemeProvider } from "@material-ui/core";
 import Dash from "./Dash/Dash";
 import Filters from "./Filters/Filters";
 import { Drawer } from "@material-ui/core";
+
+import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+
+export const themeOptions: ThemeOptions = {
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#e72a5e',
+    },
+    secondary: {
+      main: '#a13bfe',
+    },
+    background: {
+      default: '#1b203d',
+      paper: '#2a2b4a',
+    },
+    success: {
+      main: '#5ab9a0',
+    },
+  },
+};
 
 export default function App() {
 
@@ -19,7 +40,7 @@ export default function App() {
     }
 
     return (
-        <div>
+        <ThemeProvider theme={themeOptions}>
             <CssBaseline />
             <WordpressContextProvider>
                 <WordpressContext.Consumer>
@@ -37,6 +58,6 @@ export default function App() {
                         : <LinearProgress />} 
                 </WordpressContext.Consumer>
             </WordpressContextProvider>
-        </div>
+        </ThemeProvider>
     )
 }
