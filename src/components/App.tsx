@@ -5,7 +5,7 @@ import { LinearProgress, CssBaseline, ThemeProvider, createMuiTheme, Typography 
 import Dash from "./Dash/Dash";
 import Filters from "./Filters/Filters";
 import { Drawer } from "@material-ui/core";
-
+import { purple } from "@material-ui/core/colors";
 const theme = createMuiTheme({
   palette: {
     type: 'light',
@@ -13,7 +13,7 @@ const theme = createMuiTheme({
       main: '#e72a5e',
     },
     secondary: {
-      main: '#a13bfe',
+      main: purple[500],
     },
     text: {
       primary: '#000',

@@ -62,7 +62,7 @@ export default function HomicidesOverTime() {
 
     const ChartJSX = (
         <LineChart data={chartData}>
-            <XAxis dataKey={"name"} />
+            <XAxis dataKey={"name"} angle={-45} textAnchor="end" interval={0} height={50} />
             <YAxis />
             <Tooltip labelStyle={{ color: '#000', fontWeight: 'bold' }} />
             <Legend />
