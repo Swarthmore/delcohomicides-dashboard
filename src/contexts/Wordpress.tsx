@@ -73,7 +73,7 @@ export default function WordpressContextProvider({ children }: Props) {
         }
 
         // Load the posts asynchronously
-        ;(async () => {
+        ; (async () => {
 
             setIsLoaded(false);
             setIsLoading(true);
@@ -88,8 +88,8 @@ export default function WordpressContextProvider({ children }: Props) {
             // to get all of the incidents
             const promises = [];
 
-            if (!pages) throw new Error('Could not determine the pagination metadata while attempting to fetch all incidents.'); 
-            
+            if (!pages) throw new Error('Could not determine the pagination metadata while attempting to fetch all incidents.');
+
             // iterate through each page of incidents, creating a promise during each
             // iteration. This promise gets pushed to the promises array
             for (let page = 1; page <= parseInt(pages); page++) {
@@ -101,7 +101,7 @@ export default function WordpressContextProvider({ children }: Props) {
             // the data is flattened so that there is one array element per record
             // ie. [ {...record1}, {...record2}, {...record3} ]
             const incidents = flatten((await Promise.all(promises))) as RawIncident[];
-        
+
             // format the incidents
             const formatted = incidents.map((incident: RawIncident) => ({
                 id: incident.id,

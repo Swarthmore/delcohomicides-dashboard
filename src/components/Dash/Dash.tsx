@@ -51,6 +51,8 @@ export default function Dash({ onOpen }) {
         weapons: filters.values.weaponTypes
     });
 
+    //console.log({ filteredData });
+
     const startHomicides = incidentsInYear(data.formatted, filters.values.startYear);
     const endHomicides = incidentsInYear(data.formatted, filters.values.endYear);
     const pctChange = getPctChange(startHomicides, endHomicides);
