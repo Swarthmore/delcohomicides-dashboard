@@ -2,7 +2,7 @@ import * as React from "react";
 import { FormattedIncident, RawIncident } from "../types/index";
 import { flatten } from "../helpers";
 
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 interface WPContextData {
     isLoading: boolean
