@@ -111,7 +111,7 @@ export const victimsByAgeBarChartData = (grouped) => {
 /**
  * Groups incidents data by the victim's age group
  * @param incidents
- * @return {{"50+": [], "20-29": [], "30-39": [], Unknown: [], "40-49": [], "0-12": [], "13-19": []}}
+ * @return {{"50+": [], "20-29": [], "30-39": [], "40-49": [], "0-12": [], "13-19": []}}
  */
 export const groupIncidentsByAgeGroups = (incidents) => {
   // set up the incident age groups
@@ -121,8 +121,7 @@ export const groupIncidentsByAgeGroups = (incidents) => {
     "20-29": [],
     "30-39": [],
     "40-49": [],
-    "50+": [],
-    Unknown: [],
+    "50+": []
   };
 
   for (let i = 0; i < incidents.length; i++) {
@@ -133,22 +132,29 @@ export const groupIncidentsByAgeGroups = (incidents) => {
     // try to parse the victim_age out of the data
     const victimAge = parseInt(incidents[i]["victim_age"], 10);
 
-    // if the victim age can't be parsed as a number, push the incident to the unknown ages group
-    if (isNaN(victimAge)) {
-      parsed["Unknown"].push(incidents[i]);
-    }
-
     // determine the age group and push it to the parsed object
+
+    // if the victim age can't be parsed as a number, push the incident to the unknown ages group
     if (0 <= victimAge && victimAge <= 12) {
       parsed["0-12"].push(incidents[i]);
+
+    // 13-19
     } else if (13 <= victimAge && victimAge <= 19) {
       parsed["13-19"].push(incidents[i]);
+
+    // 20-29
     } else if (20 <= victimAge && victimAge <= 29) {
       parsed["20-29"].push(incidents[i]);
+
+    // 30-39
     } else if (30 <= victimAge && victimAge <= 39) {
       parsed["30-39"].push(incidents[i]);
-    } else if (40 <= victimAge <= 49) {
+
+    // 40-49
+    } else if (40 <= victimAge && victimAge <= 49) {
       parsed["40-49"].push(incidents[i]);
+
+    // 50+
     } else if (victimAge >= 50) {
       parsed["50+"].push(incidents[i]);
     }

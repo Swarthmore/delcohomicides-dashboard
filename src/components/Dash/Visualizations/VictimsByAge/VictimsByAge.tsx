@@ -45,10 +45,10 @@ export default function VictimsByAge() {
 
     const ChartJSX = (
         <BarChart data={chartData}>
-            <XAxis dataKey={"name"} />
+            <XAxis dataKey={"name"} angle={-45} textAnchor="end" interval={0} height={50} />
             <YAxis />
-            <Tooltip labelStyle={{ color: '#000', fontWeight: 'bold' }} />
-            <Legend />
+            <Tooltip labelStyle={{ color: '#000' }} />
+            <Legend align="center" />
             <Bar dataKey={"victims"} fill={purple} stackId={"a"} />
         </BarChart>
     );

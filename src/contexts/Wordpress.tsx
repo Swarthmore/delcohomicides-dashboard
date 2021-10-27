@@ -2,6 +2,8 @@ import * as React from "react";
 import { FormattedIncident, RawIncident } from "../types/index";
 import { flatten } from "../helpers";
 
+const DEBUG_MODE = true;
+
 interface WPContextData {
     isLoading: boolean
     incidents: RawIncident[]
@@ -47,7 +49,9 @@ export default function WordpressContextProvider({ children }: Props) {
             const records = headers.get("X-WP-Total");
             const pages = headers.get("X-WP-TotalPages");
 
-            //console.log({ records, pages });
+            if (DEBUG_MODE) {
+                console.log({ records, pages });
+            }
 
             return { records, pages }
         }
@@ -104,7 +108,9 @@ export default function WordpressContextProvider({ children }: Props) {
                 ...incident.acf
             }))
 
-            //console.log({ name: 'Wordpress Context Provider', incidents, formatted });
+            if (DEBUG_MODE) {
+                console.log({ name: 'Wordpress Context Provider', incidents, formatted });
+            }
 
             setFormatted(formatted);
             setIncidents(incidents);
