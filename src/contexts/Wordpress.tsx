@@ -46,6 +46,9 @@ export default function WordpressContextProvider({ children }: Props) {
             const headers = res.headers;
             const records = headers.get("X-WP-Total");
             const pages = headers.get("X-WP-TotalPages");
+
+            //console.log({ records, pages });
+
             return { records, pages }
         }
 
@@ -66,7 +69,7 @@ export default function WordpressContextProvider({ children }: Props) {
         }
 
         // Load the posts asynchronously
-        ;(async () => {
+        ; (async () => {
 
             setIsLoaded(false);
             setIsLoading(true);
@@ -81,11 +84,11 @@ export default function WordpressContextProvider({ children }: Props) {
             // to get all of the incidents
             const promises = [];
 
-            if (!pages) throw new Error('Could not determine the pagination metadata while attempting to fetch all incidents.'); 
-            
+            if (!pages) throw new Error('Could not determine the pagination metadata while attempting to fetch all incidents.');
+
             // iterate through each page of incidents, creating a promise during each
             // iteration. This promise gets pushed to the promises array
-            for (let page = 1; page < parseInt(pages); page++) {
+            for (let page = 1; page <= parseInt(pages); page++) {
                 const promise = getPage(page.toString(), perPage);
                 promises.push(promise);
             }
@@ -94,12 +97,14 @@ export default function WordpressContextProvider({ children }: Props) {
             // the data is flattened so that there is one array element per record
             // ie. [ {...record1}, {...record2}, {...record3} ]
             const incidents = flatten((await Promise.all(promises))) as RawIncident[];
-        
+
             // format the incidents
             const formatted = incidents.map((incident: RawIncident) => ({
                 id: incident.id,
                 ...incident.acf
             }))
+
+            //console.log({ name: 'Wordpress Context Provider', incidents, formatted });
 
             setFormatted(formatted);
             setIncidents(incidents);
