@@ -11,7 +11,7 @@ import { filterIncidents, fillYearsArray } from "../../helpers";
 import CountUp from "react-countup";
 import { CountUpChart } from "./CountUpChart";
 
-export default function Dash({ onOpen }) {
+export default function Dash({ onOpen, filtersOpen }) {
 
     const filters = React.useContext(FiltersContext);
     const data = React.useContext(WordpressContext);
@@ -73,7 +73,7 @@ export default function Dash({ onOpen }) {
 
                 <Grid container className={classes.row} spacing={1}>
                     <Grid item xs={12} md={6}>
-                        <VictimsMap />
+                        <VictimsMap filtersOpen={filtersOpen} />
                     </Grid>
 
                     <Grid item xs={12} md={6}>

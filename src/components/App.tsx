@@ -46,7 +46,7 @@ export default function App() {
                         ? (
                             <FilterContextProvider>
                                 <>
-                                    <Dash onOpen={onOpen} />
+                                    <Dash filtersOpen={filtersOpen} onOpen={onOpen} />
                                     <Drawer anchor='right' open={filtersOpen} onClose={onClose}>
                                         <Filters />
                                     </Drawer>

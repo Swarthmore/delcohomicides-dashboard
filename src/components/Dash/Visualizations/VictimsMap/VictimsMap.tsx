@@ -74,7 +74,7 @@ const getGradient = (zoom) => {
     }
 }
 
-function VictimsMap() {
+function VictimsMap({ filtersOpen, ...rest }) {
 
     const defaultCenter = { lat: 39.937406233270615, lng: -75.39280218135417 };
 
@@ -84,7 +84,8 @@ function VictimsMap() {
     const [gradient, setGradient] = React.useState(defaultGradient);
     const [center, setCenter] = React.useState(defaultCenter);
 
-    const mapRef = React.useRef();
+    const mapRef = React.useRef<GoogleMap>();
+    const mapContainerRef = React.useRef<HTMLDivElement>();
 
     const data = React.useContext(WordpressContext);
     const filters = React.useContext(FiltersContext);
@@ -153,14 +154,17 @@ function VictimsMap() {
             }
         }
     }
+
     // When the filters change, update the heatmap data.
     React.useEffect(() => {
         generateHeatmapData();
     }, [filters.values]);
 
     return isLoaded ? (
+
         <Paper elevation={2} style={{ height: '100%' }}>
 
+            <div ref={mapContainerRef}>
             <GoogleMap
                 ref={mapRef}
                 mapContainerStyle={{ minHeight: 500, height: "100%" }}
@@ -171,7 +175,8 @@ function VictimsMap() {
                 onCenterChanged={onCenterChanged}
                 options={{
                     maxZoom: 14,
-                    minZoom: 10
+                    minZoom: 10,
+                    fullscreenControl: false
                 }}
             >
                 <KmlLayer
@@ -214,7 +219,8 @@ function VictimsMap() {
                     }}
                 />
             </GoogleMap>
-
+            </div>
+            
         </Paper>
     ) : <Paper>Loading map...</Paper>
 };
