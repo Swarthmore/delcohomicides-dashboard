@@ -5,11 +5,12 @@
         "strict": false,
         "noImplicitReturns": false,
         "noImplicitAny": false,
-        "module": "es6",
+        "module": "ESNext",
         "moduleResolution": "node",
         "target": "es5",
         "allowJs": true,
         "jsx": "react",
+        "types": ["node"]
     },
     "include": [
         "./src/**/*"

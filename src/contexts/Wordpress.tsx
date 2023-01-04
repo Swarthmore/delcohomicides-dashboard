@@ -100,7 +100,7 @@ export default function WordpressContextProvider({ children }: Props) {
             // get all of the promised data in one call. Once the promises have resolved,
             // the data is flattened so that there is one array element per record
             // ie. [ {...record1}, {...record2}, {...record3} ]
-            const incidents = flatten((await Promise.all(promises))) as RawIncident[];
+            const incidents: RawIncident[] = flatten((await Promise.all(promises)));
 
             // format the incidents
             const formatted = incidents.map((incident: RawIncident) => ({
