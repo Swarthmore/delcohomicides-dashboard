@@ -1,0 +1,1482 @@
+[
+    {
+        "key": "group_5df3b87c2a234",
+        "title": "Incident Field Group",
+        "fields": [
+            {
+                "key": "field_5df3b8b21fb6d",
+                "label": "Year",
+                "name": "year",
+                "type": "number",
+                "instructions": "Year of homicide",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 2019,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1990,
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5df3b8cc1fb6e",
+                "label": "Date",
+                "name": "date",
+                "type": "date_picker",
+                "instructions": "Compare with PA UCR data. Default to UCR PA data.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "m\/d\/Y",
+                "return_format": "m\/d\/Y",
+                "first_day": 0
+            },
+            {
+                "key": "field_5df3b8ec1fb6f",
+                "label": "Time",
+                "name": "time",
+                "type": "time_picker",
+                "instructions": "Time of homicide",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "g:i a",
+                "return_format": "g:i a"
+            },
+            {
+                "key": "field_5df3b8fd1fb70",
+                "label": "Location",
+                "name": "location",
+                "type": "text",
+                "instructions": "Latitude, Longitude",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3b9121fb71",
+                "label": "Address",
+                "name": "address",
+                "type": "textarea",
+                "instructions": "Street Address",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5df3b91f1fb72",
+                "label": "Homicide Type PA UCR",
+                "name": "homicide_type_pa_ucr",
+                "type": "select",
+                "instructions": "From PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Manslaughter by Negligence": "Manslaughter by Negligence",
+                    "Murder and Nonnegligent Manslaughter": "Murder and Nonnegligent Manslaughter"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3ba1a1fb73",
+                "label": "Situation Type PA UCR",
+                "name": "situation_type_pa_ucr",
+                "type": "select",
+                "instructions": "From PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Multiple Victims\/Multiple Offenders": "Multiple Victims\/Multiple Offenders",
+                    "Multiple Victims\/Single Offender": "Multiple Victims\/Single Offender",
+                    "Multiple Victims\/Unknown Offender or Offenders": "Multiple Victims\/Unknown Offender or Offenders",
+                    "Single Victim\/Multiple Offenders": "Single Victim\/Multiple Offenders",
+                    "Single Victim\/Single Offender": "Single Victim\/Single Offender",
+                    "Single Victim\/Unknown Offender or Offenders": "Single Victim\/Unknown Offender or Offenders"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3ba611fb74",
+                "label": "Inside\/Outside",
+                "name": "inside_outside",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Inside": "Inside",
+                    "Outside": "Outside"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5df3bb01e2556",
+                "label": "City",
+                "name": "city",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Chester": "Chester"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5df3bb10e2557",
+                "label": "Home Rule Municipality",
+                "name": "home_rule_municipality",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Chester Township": "Chester Township",
+                    "Haverford Township": "Haverford Township",
+                    "Middletown Township": "Middletown Township",
+                    "Radnor Township": "Radnor Township",
+                    "Upper Darby Township": "Upper Darby Township",
+                    "Upper Providence Township": "Upper Providence Township"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bb6ec3107",
+                "label": "Borough",
+                "name": "borough",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Aldan": "Aldan",
+                    "Brookhaven": "Brookhaven",
+                    "Chester Heights": "Chester Heights",
+                    "Clifton Heights": "Clifton Heights",
+                    "Collingdale": "Collingdale",
+                    "Colwyn": "Colwyn",
+                    "Darby": "Darby",
+                    "East Lansdowne": "East Lansdowne",
+                    "Eddystone": "Eddystone",
+                    "Folcroft": "Folcroft",
+                    "Glenolden": "Glenolden",
+                    "Lansdowne": "Lansdowne",
+                    "Marcus Hook": "Marcus Hook",
+                    "Media": "Media",
+                    "Millbourne": "Millbourne",
+                    "Morton": "Morton",
+                    "Norwood": "Norwood",
+                    "Parkside": "Parkside",
+                    "Prospect Park": "Prospect Park",
+                    "Ridley Park": "Ridley Park",
+                    "Rose Valley": "Rose Valley",
+                    "Rutledge": "Rutledge",
+                    "Sharon Hill": "Sharon Hill",
+                    "Swarthmore": "Swarthmore",
+                    "Trainer": "Trainer",
+                    "Upland": "Upland",
+                    "Yeadon": "Yeadon"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bbf1c3108",
+                "label": "Township",
+                "name": "township",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Aston Township": "Aston Township",
+                    "Bethel Township": "Bethel Township",
+                    "Chadds Ford Township": "Chadds Ford Township",
+                    "Chester Township": "Chester Township",
+                    "Concord Township": "Concord Township",
+                    "Darby Township": "Darby Township",
+                    "Edgmont Township": "Edgmont Township",
+                    "Haverford Township": "Haverford Township",
+                    "Lower Chichester Township": "Lower Chichester Township",
+                    "Marple Township": "Marple Township",
+                    "Middletown Township": "Middletown Township",
+                    "Nether Providence Township": "Nether Providence Township",
+                    "Newton Township": "Newton Township",
+                    "Radnor Township": "Radnor Township",
+                    "Ridley Township": "Ridley Township",
+                    "Springfield Township": "Springfield Township",
+                    "Thornbury Township": "Thornbury Township",
+                    "Tinicum Township": "Tinicum Township",
+                    "Upper Chichester Township": "Upper Chichester Township",
+                    "Upper Darby Township": "Upper Darby Township",
+                    "Upper Providence Township": "Upper Providence Township"
+                },
+                "default_value": false,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bc4ec3109",
+                "label": "Census Place",
+                "name": "census_place",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Ardmore": "Ardmore",
+                    "Boothwyn": "Boothwyn",
+                    "Broomall": "Broomall",
+                    "Drexel Hill": "Drexel Hill",
+                    "Folsom": "Folsom",
+                    "Haverford College": "Haverford College",
+                    "Lima": "Lima",
+                    "Linwood": "Linwood",
+                    "Village Green-Green Ridge": "Village Green-Green Ridge",
+                    "Woodlyn": "Woodlyn"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bc86c310a",
+                "label": "Unincorporated Community",
+                "name": "unincorporated_community",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Garrett Hill": "Garrett Hill",
+                    "Riddlewood": "Riddlewood",
+                    "Rosemont": "Rosemont",
+                    "Villanova": "Villanova",
+                    "Wallingford": "Wallingford",
+                    "Wawa": "Wawa",
+                    "Wayne": "Wayne",
+                    "Havertown": "Havertown",
+                    "Glen Mills": "Glen Mills",
+                    "Moylan": "Moylan"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bcbac310b",
+                "label": "Police District",
+                "name": "police_district",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bcc8c310c",
+                "label": "Victims PA UCR",
+                "name": "victims_pa_ucr",
+                "type": "number",
+                "instructions": "From PA UCR data. Number of victims.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5df3bd2cc310d",
+                "label": "Victim",
+                "name": "victim",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bd33c310e",
+                "label": "Victim Race",
+                "name": "victim_race",
+                "type": "select",
+                "instructions": "From PA UCR data",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Asian\/Pacific Islander": "Asian\/Pacific Islander",
+                    "Black": "Black",
+                    "Hispanic": "Hispanic",
+                    "White": "White",
+                    "Other": "Other",
+                    "Unknown": "Unknown",
+                    "Missing": "Missing"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bd56c310f",
+                "label": "Victim Ethnicity",
+                "name": "victim_ethnicity",
+                "type": "select",
+                "instructions": "From PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Hispanic": "Hispanic",
+                    "Not of Hispanic Origin": "Not of Hispanic Origin",
+                    "Unknown": "Unknown"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bd74c3110",
+                "label": "Victim Age",
+                "name": "victim_age",
+                "type": "text",
+                "instructions": "Compare with PA UCR data. Default to PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bd95c3111",
+                "label": "Victim Sex",
+                "name": "victim_sex",
+                "type": "button_group",
+                "instructions": "Compare with PA UCR data",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Female": "Female",
+                    "Male": "Male"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5df3bdafc3112",
+                "label": "Offenders PA UCR",
+                "name": "offenders_pa_ucr",
+                "type": "text",
+                "instructions": "From PA UCR data. Number of offenders.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bdbfc3113",
+                "label": "Defendant 1",
+                "name": "defendant",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006f9f980594",
+                "label": "Defendant 2",
+                "name": "defendant_2",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006fa1680596",
+                "label": "Defendant 3",
+                "name": "defendant_3",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bdcec3114",
+                "label": "Defendant 1 Race",
+                "name": "defendant_race",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006fa0480595",
+                "label": "Defendant 2 Race",
+                "name": "defendant_2_race",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006fa1b80597",
+                "label": "Defendant 3 Race",
+                "name": "defendant_3_race",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bdd5c3115",
+                "label": "Defendant 1 Age",
+                "name": "defendant_age",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006fa2980598",
+                "label": "Defendant 2 Age",
+                "name": "defendant_2_age",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_6006fa3880599",
+                "label": "Defendant 3 Age",
+                "name": "defendant_3_age",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bddcc3116",
+                "label": "Defendant 1 Sex",
+                "name": "defendant_sex",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Female": "Female",
+                    "Male": "Male"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_6006fa488059a",
+                "label": "Defendant 2 Sex",
+                "name": "defendant_2_sex",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Female": "Female",
+                    "Male": "Male"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_6006fa568059b",
+                "label": "Defendant 3 Sex",
+                "name": "defendant_3_sex",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Female": "Female",
+                    "Male": "Male"
+                },
+                "allow_null": 1,
+                "default_value": "",
+                "layout": "horizontal",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5df3bde8c3117",
+                "label": "Relationship Type PA UCR",
+                "name": "relationship_type_pa_ucr",
+                "type": "select",
+                "instructions": "Victim Relationship to Offender from PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Unknown Relationship": "Unknown Relationship",
+                    "Acquaintance": "Acquaintance",
+                    "Boyfriend": "Boyfriend",
+                    "Brother": "Brother",
+                    "Common-Law wife": "Common-Law wife",
+                    "Daughter": "Daughter",
+                    "Employee": "Employee",
+                    "Ex-Wife": "Ex-Wife",
+                    "Father": "Father",
+                    "Friend": "Friend",
+                    "Girlfriend": "Girlfriend",
+                    "Husband": "Husband",
+                    "Mother": "Mother",
+                    "Neighbor": "Neighbor",
+                    "Other-Known to Victim": "Other-Known to Victim",
+                    "Other Family": "Other Family",
+                    "Son": "Son",
+                    "Stepdaughter": "Stepdaughter",
+                    "Stepson": "Stepson",
+                    "Stranger": "Stranger",
+                    "Unknown": "Unknown",
+                    "Victim Was Offender": "Victim Was Offender",
+                    "Wife": "Wife"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3be4dc3118",
+                "label": "Victim Relationship to Offender",
+                "name": "victim_relationship_to_offender",
+                "type": "select",
+                "instructions": "(Not from PA UCR data).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Girl\/Boyfriend\/Ex": "Girl\/Boyfriend\/Ex",
+                    "Wife\/Husband": "Wife\/Husband",
+                    "Parent": "Parent",
+                    "Cousin": "Cousin",
+                    "Sister": "Sister",
+                    "Brother": "Brother",
+                    "Friend": "Friend",
+                    "Daughter\/Son": "Daughter\/Son",
+                    "Police": "Police",
+                    "Other": "Other"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3be82c3119",
+                "label": "Death Circumstance PA UCR",
+                "name": "death_circumstance_pa_ucr",
+                "type": "select",
+                "instructions": "Death Circumstance from PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "All Suspected Felony Type": "All Suspected Felony Type",
+                    "Argument Over Money or Property": "Argument Over Money or Property",
+                    "Arson": "Arson",
+                    "Brawl Due to Influence of Alcohol": "Brawl Due to Influence of Alcohol",
+                    "Burglary": "Burglary",
+                    "Child Killed by Babysitter": "Child Killed by Babysitter",
+                    "Children Playing with Gun": "Children Playing with Gun",
+                    "Felon Killed by Police": "Felon Killed by Police",
+                    "Felon Killed by Private Citizen": "Felon Killed by Private Citizen",
+                    "Gangland Killings": "Gangland Killings",
+                    "Lover's Triangle": "Lover's Triangle",
+                    "Narcotic Drug Laws": "Narcotic Drug Laws",
+                    "Other": "Other",
+                    "Other - Not Specified": "Other - Not Specified",
+                    "Other Arguments": "Other Arguments",
+                    "Other Manslaughter by Neg. Except Traffic": "Other Manslaughter by Neg. Except Traffic",
+                    "Other neg. Handling of Gun Results in Death": "Other neg. Handling of Gun Results in Death",
+                    "Other Sex Offense": "Other Sex Offense",
+                    "Rape": "Rape",
+                    "Robbery": "Robbery",
+                    "Unknown": "Unknown"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bee1c311a",
+                "label": "Justified PA UCR",
+                "name": "justified_pa_ucr",
+                "type": "select",
+                "instructions": "Whether the killing was justified. Default = unjustified. From PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Default": "Default",
+                    "Killed in Commission of a Crime": "Killed in Commission of a Crime",
+                    "Criminal Attacked a Civilian": "Criminal Attacked a Civilian",
+                    "Criminal Attacked Police Officer and That Officer Killed Criminal": "Criminal Attacked Police Officer and That Officer Killed Criminal",
+                    "Crim. Attacked Police Off. and Crim. Killed by Another Off.": "Crim. Attacked Police Off. and Crim. Killed by Another Off."
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bf04c311b",
+                "label": "Motive",
+                "name": "motive",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Drugs": "Drugs",
+                    "Domestic": "Domestic",
+                    "Argument": "Argument",
+                    "Sexual": "Sexual",
+                    "Residential Robbery": "Residential Robbery",
+                    "Commercial Robbery": "Commercial Robbery",
+                    "Highway Robbery": "Highway Robbery",
+                    "Child Abuse": "Child Abuse",
+                    "Other": "Other",
+                    "Retaliation": "Retaliation",
+                    "Suicide by Cop": "Suicide by Cop",
+                    "Unknown": "Unknown"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bf3bc311c",
+                "label": "Criminal Charges",
+                "name": "criminal_charges",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3bf60c311d",
+                "label": "Cause of Death",
+                "name": "cause_of_death",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Narcotics": "Narcotics",
+                    "Blunt Force Trauma": "Blunt Force Trauma",
+                    "Physical Assault": "Physical Assault",
+                    "Knife\/Edged Weapon": "Knife\/Edged Weapon",
+                    "Strangle": "Strangle",
+                    "Gunshot": "Gunshot",
+                    "Vehicle": "Vehicle",
+                    "Other": "Other"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bf88c311e",
+                "label": "Weapon Type PA UCR",
+                "name": "weapon_type_pa_ucr",
+                "type": "select",
+                "instructions": "From PA UCR data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Asphyxiation": "Asphyxiation",
+                    "Blunt Object": "Blunt Object",
+                    "Drugs\/Narcotics\/Sleeping Pills": "Drugs\/Narcotics\/Sleeping Pills",
+                    "Fire\/Incendiary Device": "Fire\/Incendiary Device",
+                    "Firearm": "Firearm",
+                    "Handgun": "Handgun",
+                    "Knife\/Cutting Instrument": "Knife\/Cutting Instrument",
+                    "Other": "Other",
+                    "Other Gun": "Other Gun",
+                    "Personal Weapons": "Personal Weapons",
+                    "Rifle": "Rifle",
+                    "Shotgun": "Shotgun",
+                    "Strangulation": "Strangulation",
+                    "Unknown": "Unknown"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3bfcdc311f",
+                "label": "Automatic Weapon PA UCR",
+                "name": "automatic_weapon_pa_ucr",
+                "type": "true_false",
+                "instructions": "From PA UCR Data.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5df3bfefc3120",
+                "label": "Gunshot Wound",
+                "name": "gunshot_wound",
+                "type": "select",
+                "instructions": "Location of gunshot wound.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Abdomen": "Abdomen",
+                    "Back": "Back",
+                    "Chest": "Chest",
+                    "Head Only": "Head Only",
+                    "Head and Additional Area(s)": "Head and Additional Area(s)",
+                    "Multi Areas": "Multi Areas",
+                    "No head\" Neck": "No head\" Neck",
+                    "No Head - Neck": "No Head - Neck",
+                    "Side": "Side",
+                    "Shoulder": "Shoulder"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c026c3121",
+                "label": "Caliber",
+                "name": "caliber",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3c02ec3122",
+                "label": "Gun Purchase",
+                "name": "gun_purchase",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "choices": {
+                    "Legal": "Legal",
+                    "Illegal": "Illegal"
+                },
+                "default_value": false,
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 1,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c04ec3123",
+                "label": "Data Entry",
+                "name": "data_entry",
+                "type": "user",
+                "instructions": "Name of person entering data for this case.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "role": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "array"
+            },
+            {
+                "key": "field_5df3c071c3124",
+                "label": "Data Cleanup",
+                "name": "data_cleanup",
+                "type": "user",
+                "instructions": "Name of person who has double checked the entry during data cleanup.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "role": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "array"
+            },
+            {
+                "key": "field_5df3c095fbfda",
+                "label": "Comment",
+                "name": "comment",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5df3c0a1fbfdb",
+                "label": "Source",
+                "name": "source",
+                "type": "text",
+                "instructions": "News source from which data is derived.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5df3c0b3fbfdc",
+                "label": "Missing Data",
+                "name": "missing_data",
+                "type": "textarea",
+                "instructions": "Please choose if data cannot be matched with primary source(s).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5df3c0befbfdd",
+                "label": "Story URL 1",
+                "name": "story_url_1",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0d4fbfde",
+                "label": "Story URL 2",
+                "name": "story_url_2",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0d9fbfdf",
+                "label": "Story URL 3",
+                "name": "story_url_3",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0dafbfe0",
+                "label": "Story URL 4",
+                "name": "story_url_4",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0defbfe1",
+                "label": "Story URL 5",
+                "name": "story_url_5",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0e0fbfe2",
+                "label": "Story URL 6",
+                "name": "story_url_6",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0e4fbfe3",
+                "label": "Photo URL 1",
+                "name": "photo_url_1",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0eafbfe4",
+                "label": "Photo URL 2",
+                "name": "photo_url_2",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 1,
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5df3c0edfbfe5",
+                "label": "Citation",
+                "name": "citation",
+                "type": "textarea",
+                "instructions": "Use ASA format. A format guide is available at http:\/\/bit.ly\/2DmMDEn  The newspaper citation format will almost always be the appropriate one to use. You can enter multiple citations within this field. Enter spaces between the entries.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "incident"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink",
+            "the_content",
+            "excerpt",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "format",
+            "page_attributes",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": true,
+        "description": ""
+    }
+]
