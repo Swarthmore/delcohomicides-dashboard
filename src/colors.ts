@@ -9,7 +9,7 @@ import {
   green,
   lightGreen,
   grey,
-} from "@material-ui/core/colors";
+} from "@mui/material/colors";
 
 export const colors = [
   pink,

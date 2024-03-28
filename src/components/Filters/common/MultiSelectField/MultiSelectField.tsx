@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormControl, FormControlProps, InputLabel, InputLabelProps, Select, SelectProps, Input, InputProps, Chip, MenuItem, MenuItemProps } from "@material-ui/core";
+import { FormControl, FormControlProps, InputLabel, InputLabelProps, Select, SelectProps, Input, InputProps, Chip, MenuItem, MenuItemProps } from "@mui/material";
 import { useStyles } from "./useStyles";
 
 interface Props {

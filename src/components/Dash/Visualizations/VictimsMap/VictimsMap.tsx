@@ -16,7 +16,7 @@ import {
 import { WordpressContext } from "../../../../contexts/Wordpress";
 import { FiltersContext } from "../../../../contexts/Filters";
 import { fillYearsArray, filterIncidents } from "../../../../helpers";
-import { Paper } from '@material-ui/core';
+import { Paper } from '@mui/material';
 
 // Parse the coordinates from incident field
 const parseCoordinatesFromIncident = ({ location }) => {
