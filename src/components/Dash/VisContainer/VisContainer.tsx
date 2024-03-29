@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Typography, Paper } from "@material-ui/core";
+import { Typography, Paper } from "@mui/material";
 import { ResponsiveContainer } from "recharts";
 
 interface Props {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Filters, FiltersContext } from "../../../../contexts/Filters";
-import { Button, ButtonProps } from "@material-ui/core";
+import { Button, ButtonProps } from "@mui/material";
 
 export default function SelectAllButton(props: ButtonProps) {
 

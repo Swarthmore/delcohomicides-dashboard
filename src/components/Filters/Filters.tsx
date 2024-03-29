@@ -10,12 +10,12 @@ import MapLayerField from "./fields/MapLayerField/MapLayerField";
 import ClearAllButton from "./common/ClearAllButton/ClearAllButton";
 import SelectAllButton from "./common/SelectAllButton/SelectAllButton";
 import { useStyles } from "./useStyles";
-import { Filters, FiltersContext } from "../../contexts/Filters";
+import { Filters as TFilters, FiltersContext } from "../../contexts/Filters";
 
 export default function Filters() {
 
     const classes = useStyles();
-    const ctx: Filters = React.useContext(FiltersContext);
+    const ctx: TFilters = React.useContext(FiltersContext);
 
     // When the filters mount, make sure that the select firearms only checkbox
     // is unchecked, and then active the select all button.
@@ -33,7 +33,7 @@ export default function Filters() {
     }, []);
 
     return (
-        <div className={classes.root}> 
+        <div className={classes.root}>
             <form noValidate onSubmit={e => e.preventDefault}>
                 <div className={classes.fieldContainer} style={{ justifyContent: 'space-between', marginBottom: '20px' }}>
                     <SelectAllButton color="primary" />

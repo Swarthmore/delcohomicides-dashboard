@@ -1,4 +1,4 @@
-import { Button, Grid, Typography, Paper } from "@material-ui/core";
+import { Button, Grid, Typography, Paper } from "@mui/material";
 import * as React from "react";
 import { FiltersContext } from "../../contexts/Filters";
 import { WordpressContext } from "../../contexts/Wordpress";

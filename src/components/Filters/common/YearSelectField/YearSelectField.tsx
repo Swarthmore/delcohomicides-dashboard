@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormControl, InputLabel, Select, MenuItem, SelectProps, MenuItemProps, InputLabelProps } from '@material-ui/core'
+import { FormControl, InputLabel, Select, MenuItem, SelectProps, MenuItemProps, InputLabelProps } from '@mui/material'
 import { FiltersContext } from "../../../../contexts/Filters";
 
 interface Props {

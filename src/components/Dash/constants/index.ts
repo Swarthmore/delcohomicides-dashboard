@@ -1,4 +1,4 @@
-export const GOOGLE_API_KEY = `AIzaSyDkxnv2gvNDB1oYNmZpFeqgBb32XR-K2lk`;
+export const GOOGLE_API_KEY = 'AIzaSyBnpVFXPtqXgAwddmaUHUZgpLxZMFBkMMY';
 export const MEDIAN_INCOME_KML =
   `https://delcohomicides.swarthmore.edu/dash/median_income.kml`;
 export const HOMICIDE_RATES_KML =

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FiltersContext } from "../../../../contexts/Filters";
-import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { ActiveMapLayer } from "../../../../types";
 
 export default function MapLayerField() {
