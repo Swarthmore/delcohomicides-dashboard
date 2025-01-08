@@ -11,6 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install LFTP
         run: sudo apt update && sudo apt install -y lftp
+      - uses: pnpm/action-setup@v4
       - name: Build
         run: |
           pnpm ci
