@@ -16,7 +16,7 @@ jobs:
           version: 9
       - name: Build
         run: |
-          pnpm ci
+          pnpm i
           pnpm run build
       - name: Deploy
         run: |
