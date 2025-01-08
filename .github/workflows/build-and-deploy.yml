@@ -1,0 +1,26 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["main"]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install LFTP
+        run: sudo apt update && sudo apt install -y lftp
+      - name: Build
+        run: |
+          pnpm ci
+          pnpm run build
+      - name: Deploy
+        run: |
+          lftp -e "
+            set ssl:verify-certificate no;
+            open ftp://${{ secrets.FTP_HOST }};
+            user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }};
+            mirror -R dist ./;
+            bye
+          "
