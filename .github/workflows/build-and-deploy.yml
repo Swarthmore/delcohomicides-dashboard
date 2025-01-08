@@ -12,6 +12,8 @@ jobs:
       - name: Install LFTP
         run: sudo apt update && sudo apt install -y lftp
       - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Build
         run: |
           pnpm ci
